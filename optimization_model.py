@@ -8,7 +8,6 @@ Created on Sat Feb  2 19:52:13 2019
 
 import networkx as nx
 import os
-import pandas as pd
 import gurobipy as grb
 
 #PREPROCESSING
@@ -68,9 +67,9 @@ def greedy_init(G):
             if R.number_of_nodes() != 0:
                 x = get_min_degree_vertex(R)
     return(max_ind_sets)
-            
-        
-#CHECK1: IF IT IS AN INDEPENDENT SET  
+
+
+#CHECK1: IF IT IS AN INDEPENDENT SET
 def check1(max_ind_sets, check=True):
     n = G.number_of_nodes()
     check  = True
@@ -109,16 +108,10 @@ def check2(max_ind_sets, check = True):
 edge_list = preprocess('san200_0.9_1.txt')
 G = create_graph(edge_list)
 nx.draw(G)
-max_ind_sets = greedy_init(G) 
+max_ind_sets = greedy_init(G)
 check1(max_ind_sets)
 check2(max_ind_sets)
 n = G.number_of_nodes()
-
-#TEMPORARY FILE READING
-#data = pd.read_csv('MXL_Sets.csv', header = None)
-#data_array = data.values
-#max_ind_sets = list(data_array)
-#n = 64
 
 #MODELLING
 #GUROBI
@@ -217,4 +210,3 @@ while True:
         rmp_model.update()
         rmp_model.write('updated.lp')
         K += 1
-
