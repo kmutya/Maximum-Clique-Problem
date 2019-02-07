@@ -13,7 +13,7 @@ import gurobipy as grb
 #PREPROCESSING
 #Read in the .txt file
 os.getcwd()
-os.chdir('/Users/apple/Google Drive/A&M/Spring 2019/Max clique/DIMACS_all_ascii')
+os.chdir('/Users/apple/Google Drive/A&M/Spring 2019/Max clique')
 
 def preprocess(file):
     '''takes in the name of the file as a string and returns a list of edges'''
